@@ -1,0 +1,11 @@
+name: self hosted
+
+on:
+ push
+
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+     - run: |
+        echo "solf hosted runner"
