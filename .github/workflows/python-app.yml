@@ -19,7 +19,7 @@ jobs:
        - run: python setup.py sdist bdist_wheel
        - uses: actions/upload-artifact@v4.6.0
          with:
-            name: Package
-            path: ptython_artifact
+          name: Package
+          path: dist/
 
  
