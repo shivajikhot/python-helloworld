@@ -1,0 +1,28 @@
+name: python_based
+
+run-name: python workflow
+
+on:
+ push
+
+jobs:
+  echo-triggers:
+    runs-on: ubuntu-latest
+    steps:
+       - name: checkout
+         uses: actions/checkout@v3
+       - name: pythonsetup
+         uses: actions/setup-python@v5.3.0
+         with:
+          python-version: '3.9'
+       - run: python -m pip install --upgrade setuptools wheel
+       - run: python setup.py sdist bdist_wheel
+       - uses: actions/upload-artifact@v4.6.0
+         with:
+            name: Package
+            path: ptython_artifact
+            
+       - name: Test with pytest
+         run: |
+              pytest
+ 
