@@ -1,12 +1,12 @@
 name: python_based
 
-run-name: python workflow
+run-name: python app
 
 on:
  push
 
 jobs:
-  echo-triggers:
+  python_build:
     runs-on: ubuntu-latest
     steps:
        - name: checkout
@@ -21,8 +21,5 @@ jobs:
          with:
             name: Package
             path: ptython_artifact
-            
-       - name: Test with pytest
-         run: |
-              pytest
+
  
